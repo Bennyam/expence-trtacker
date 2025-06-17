@@ -8,6 +8,8 @@ describe("createExpense", () => {
     description: "Test aankoop",
     amount: 25.5,
     date: "2025-06-17",
+    displayDate: "17-06-2025",
+    category: "test",
   };
 
   beforeEach(() => {

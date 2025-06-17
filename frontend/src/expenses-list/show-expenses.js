@@ -27,11 +27,16 @@ function renderExpenses(element, expenses) {
   }
 
   const ul = document.createElement("ul");
-  expenses.forEach((expense) => {
-    const li = document.createElement("li");
-    li.textContent = `${expense.description} - €${expense.amount.toFixed(2)}`;
-    ul.appendChild(li);
-  });
+  expenses
+    .slice()
+    .reverse()
+    .forEach((expense) => {
+      const li = document.createElement("li");
+      li.textContent = `${expense?.displayDate} - ${
+        expense.description
+      } - €${expense.amount.toFixed(2)} - ${expense?.category}`;
+      ul.appendChild(li);
+    });
 
   element.appendChild(ul);
 }

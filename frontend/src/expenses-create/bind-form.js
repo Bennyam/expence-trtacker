@@ -1,13 +1,14 @@
-import { addExpense } from "./add-expense";
-import { showExpenses } from "../expenses-list/show-expenses";
-import { showError } from "../ui-helpers";
+import { addExpense } from "./add-expense.js";
+import { showExpenses } from "../expenses-list/show-expenses.js";
+import { showError } from "../ui-helpers.js";
 
 export async function submitExpense(form) {
   const formData = new FormData(form);
   const data = {
     description: formData.get("description"),
-    amount: formData.get("amount"),
+    amount: Number(formData.get("amount")),
     date: formData.get("date"),
+    category: formData.get("category"),
   };
   return await addExpense(data);
 }

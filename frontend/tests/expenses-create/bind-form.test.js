@@ -23,6 +23,7 @@ describe("submitExpense", () => {
       <input name="description" value="Koffie" />
       <input name="amount" value="2.5" />
       <input name="date" value="2025-06-17" />
+      <input name="category" value="drank" />
     `;
   });
 
@@ -32,8 +33,9 @@ describe("submitExpense", () => {
     const result = await formUtils.submitExpense(form);
     expect(addExpense).toHaveBeenCalledWith({
       description: "Koffie",
-      amount: "2.5",
+      amount: 2.5,
       date: "2025-06-17",
+      category: "drank",
     });
     expect(result).toEqual({ success: true });
   });

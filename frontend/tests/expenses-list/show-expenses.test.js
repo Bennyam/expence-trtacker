@@ -35,13 +35,23 @@ describe("UI rendering", () => {
 
   it("toont lijst van expenses", () => {
     ui.renderExpenses(container, [
-      { description: "Pizza", amount: 10 },
-      { description: "Boek", amount: 25.99 },
+      {
+        displayDate: "17-06-2025",
+        description: "Pizza",
+        amount: 10,
+        category: "Eten",
+      },
+      {
+        displayDate: "15-06-2025",
+        description: "Boek",
+        amount: 25.99,
+        category: "School",
+      },
     ]);
     const items = container.querySelectorAll("li");
     expect(items).toHaveLength(2);
-    expect(items[0].textContent).toBe("Pizza - €10.00");
-    expect(items[1].textContent).toBe("Boek - €25.99");
+    expect(items[0].textContent).toBe("15-06-2025 - Boek - €25.99 - School");
+    expect(items[1].textContent).toBe("17-06-2025 - Pizza - €10.00 - Eten");
   });
 
   it("showExpenses: toont lijst bij success", async () => {

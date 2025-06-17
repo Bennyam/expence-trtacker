@@ -1,4 +1,4 @@
-import { clearElement } from "./expenses-list/show-expenses";
+import { clearElement } from "./expenses-list/show-expenses.js";
 
 export function showError(element, error) {
   clearElement(element);
