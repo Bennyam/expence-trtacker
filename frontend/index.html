@@ -4,29 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./src/app.js"></script>
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
   </head>
   <body>
-    <form id="expense-form">
-      <label>
-        Omschrijving:
-        <input type="text" name="description" required />
-      </label>
-      <label>
-        Bedrag:
-        <input type="number" name="amount" step="0.01" required />
-      </label>
-      <label>
-        Datum:
-        <input type="date" name="date" required />
-      </label>
-      <label>
-        Categorie:
-        <input type="text" name="category" />
-      </label>
-      <button type="submit">Toevoegen</button>
-    </form>
+    <div class="layout">
+      <form id="expense-form">
+        <div class="input-group">
+          <label> Omschrijving: </label>
+          <input type="text" name="description" required />
+        </div>
+        <div class="input-group">
+          <label> Bedrag: </label>
+          <input type="number" name="amount" step="0.01" required />
+        </div>
+        <div class="input-group">
+          <label> Datum: </label>
+          <input type="date" name="date" required />
+        </div>
+        <div class="input-group">
+          <label> Categorie: </label>
+          <input type="text" name="category" />
+        </div>
+        <button type="submit">Toevoegen</button>
+      </form>
 
-    <div id="app"></div>
+      <div id="app"></div>
+    </div>
   </body>
 </html>
