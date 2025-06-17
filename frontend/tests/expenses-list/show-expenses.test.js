@@ -23,12 +23,6 @@ describe("UI rendering", () => {
     expect(getText()).toBe("Loading...");
   });
 
-  it("toont foutmelding in rood", () => {
-    ui.showError(container, "Foutje");
-    expect(pText()).toBe("Foutje");
-    expect(container.querySelector("p").style.color).toBe("red");
-  });
-
   it("toont empty state", () => {
     ui.showEmptyState(container);
     expect(getText()).toBe("No expenses found.");
