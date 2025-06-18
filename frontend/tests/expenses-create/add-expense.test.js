@@ -3,13 +3,17 @@ import {
   validateFormData,
   addExpense,
 } from "../../src/expenses-create/add-expense";
+import { __only_for_test as formData } from "../../src/expenses-create/add-expense";
 import { createExpense } from "../../src/expenses-create/post-expense";
 
 vi.mock("../../src/expenses-create/post-expense");
 
 describe("validateFormData", () => {
   it("faalt zonder description", () => {
-    const result = validateFormData({ amount: 10, date: "2025/06/17" });
+    const result = formData.validateFormData({
+      amount: 10,
+      date: "2025/06/17",
+    });
     expect(result).toEqual({
       success: false,
       error: "Omschrijving is verplicht.",
@@ -17,7 +21,7 @@ describe("validateFormData", () => {
   });
 
   it("faalt als amount geen getal is", () => {
-    const result = validateFormData({
+    const result = formData.validateFormData({
       description: "Test",
       amount: "abc",
       date: "2025/06/17",
@@ -29,7 +33,7 @@ describe("validateFormData", () => {
   });
 
   it("faalt als amount <= 0", () => {
-    const result = validateFormData({
+    const result = formData.validateFormData({
       description: "Test",
       amount: 0,
       date: "2025/06/17",
@@ -41,7 +45,7 @@ describe("validateFormData", () => {
   });
 
   it("faalt als datum ongeldig is", () => {
-    const result = validateFormData({
+    const result = formData.validateFormData({
       description: "Test",
       amount: 10,
       date: "invalid-date",
@@ -50,7 +54,7 @@ describe("validateFormData", () => {
   });
 
   it("accepteert datum met /", () => {
-    const result = validateFormData({
+    const result = formData.validateFormData({
       description: "Test",
       amount: 10,
       date: "2025/06/17",
@@ -59,7 +63,7 @@ describe("validateFormData", () => {
   });
 
   it("accepteert datum met -", () => {
-    const result = validateFormData({
+    const result = formData.validateFormData({
       description: "Test",
       amount: 10,
       date: "2025-06-17",

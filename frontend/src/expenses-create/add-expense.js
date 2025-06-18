@@ -1,6 +1,6 @@
 import { createExpense } from "./post-expense.js";
 
-export function validateFormData(data) {
+function validateFormData(data) {
   const { description, amount, date } = data;
 
   if (!description || description.trim() === "") {
@@ -43,3 +43,5 @@ export async function addExpense(data) {
     return { success: false, error: err.message };
   }
 }
+
+export const __only_for_test = { validateFormData };
