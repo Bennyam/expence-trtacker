@@ -1,6 +1,6 @@
-import { removeExpense } from "../expenses-delete/remove-expense";
-import { showExpenses } from "./show-expenses";
-import { showError } from "../ui-helpers";
+import { removeExpense } from "../expenses-delete/remove-expense.js";
+import { showExpenses } from "./show-expenses.js";
+import { showError } from "../ui-helpers.js";
 
 export async function onDeleteButtonClicked(element, expense) {
   const result = await removeExpense(expense.id);

@@ -1,4 +1,4 @@
-import { deleteExpense } from "./delete-expense";
+import { deleteExpense } from "./delete-expense.js";
 
 export function removeExpense(id) {
   return deleteExpense(id)
