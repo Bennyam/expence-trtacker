@@ -1,5 +1,6 @@
 import { getExpenses } from "./format-expenses.js";
 import { showError } from "../ui-helpers.js";
+import { appendDeleteButton } from "./delete-button.js";
 
 export function clearElement(element) {
   element.innerHTML = "";
@@ -35,6 +36,7 @@ function renderExpenses(element, expenses) {
       li.textContent = `${expense?.displayDate} - ${
         expense.description
       } - €${expense.amount.toFixed(2)} - ${expense?.category}`;
+      appendDeleteButton(li, element, expense);
       ul.appendChild(li);
     });
 

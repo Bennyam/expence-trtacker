@@ -1,5 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { __only_for_test as ui } from "../../src/expenses-list/show-expenses.js";
+import { appendDeleteButton } from "../../src/expenses-list/delete-button.js";
+
+vi.mock("../../src/expenses-list/delete-button.js", () => ({
+  appendDeleteButton: vi.fn(),
+}));
 
 vi.mock("../../src/expenses-list/format-expenses.js", () => ({
   getExpenses: vi.fn(),
@@ -34,7 +39,7 @@ describe("UI rendering", () => {
   });
 
   it("toont lijst van expenses", () => {
-    ui.renderExpenses(container, [
+    const expenses = [
       {
         displayDate: "17-06-2025",
         description: "Pizza",
@@ -47,11 +52,21 @@ describe("UI rendering", () => {
         amount: 25.99,
         category: "School",
       },
-    ]);
+    ];
+
+    ui.renderExpenses(container, expenses);
     const items = container.querySelectorAll("li");
     expect(items).toHaveLength(2);
-    expect(items[0].textContent).toBe("15-06-2025 - Boek - €25.99 - School");
-    expect(items[1].textContent).toBe("17-06-2025 - Pizza - €10.00 - Eten");
+
+    expect(items[0].textContent).toContain("15-06-2025");
+    expect(items[0].textContent).toContain("Boek");
+    expect(items[0].textContent).toContain("€25.99");
+    expect(items[0].textContent).toContain("School");
+
+    expect(items[1].textContent).toContain("17-06-2025");
+    expect(items[1].textContent).toContain("Pizza");
+    expect(items[1].textContent).toContain("€10.00");
+    expect(items[1].textContent).toContain("Eten");
   });
 
   it("showExpenses: toont lijst bij success", async () => {
@@ -80,5 +95,45 @@ describe("UI rendering", () => {
 
     await ui.showExpenses(container);
     expect(pText()).toBe("Something went wrong dude");
+  });
+
+  it("voegt deleteknoppen toe via appendDeleteButton", () => {
+    vi.clearAllMocks();
+
+    const expenses = [
+      {
+        id: "1",
+        description: "Aankoop A",
+        amount: 10,
+        displayDate: "01-01-2025",
+        category: "Algemeen",
+      },
+      {
+        id: "2",
+        description: "Aankoop B",
+        amount: 20,
+        displayDate: "02-01-2025",
+        category: "Algemeen",
+      },
+    ];
+
+    ui.renderExpenses(container, expenses);
+
+    const listItems = container.querySelectorAll("li");
+    expect(listItems.length).toBe(2);
+
+    expect(appendDeleteButton).toHaveBeenCalledTimes(2);
+    expect(appendDeleteButton).toHaveBeenNthCalledWith(
+      1,
+      listItems[0],
+      container,
+      expenses[1]
+    ); // reversed
+    expect(appendDeleteButton).toHaveBeenNthCalledWith(
+      2,
+      listItems[1],
+      container,
+      expenses[0]
+    );
   });
 });
