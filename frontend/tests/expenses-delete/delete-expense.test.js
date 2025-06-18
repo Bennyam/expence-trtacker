@@ -1,5 +1,5 @@
 import { it, expect, describe, vi, beforeEach } from "vitest";
-import { deleteExpense } from "../../src/expenses-delete/deleteExpense";
+import { deleteExpense } from "../../src/expenses-delete/delete-expense";
 
 global.fetch = vi.fn();
 
