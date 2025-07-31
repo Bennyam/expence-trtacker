@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API;
 
-public class Expence
+public class Expense
 {
     [Key]
     public Guid Id { get; set; }
@@ -20,9 +20,9 @@ public class Expence
 
     public string Category { get; set; } = "Geen categorie";
 
-    public Expence() { }
+    public Expense() { }
 
-    public Expence(string description, decimal amount, DateOnly date, string category = "Geen categorie")
+    public Expense(string description, decimal amount, DateOnly date, string category = "Geen categorie")
     {
         if (string.IsNullOrWhiteSpace(description))
             throw new ArgumentException("Beschrijving mag niet leeg zijn.", nameof(description));

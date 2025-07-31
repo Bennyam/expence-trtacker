@@ -1,5 +1,5 @@
 export async function createExpense(data) {
-  const response = await fetch("http://localhost:3000/expenses", {
+  const response = await fetch("http://localhost:5270/api/Expence", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
