@@ -1,9 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { __only_for_test as formUtils } from "../../src/expenses-create/bind-form.js";
-import { addExpense } from "../../src/expenses-create/add-expense";
-import { showExpenses } from "../../src/expenses-list/show-expenses";
-import { showError } from "../../src/ui-helpers";
 
+// Eerst de mocks (moeten vóór import van de module die ze gebruikt)
 vi.mock("../../src/expenses-create/add-expense", () => ({
   addExpense: vi.fn(),
 }));
@@ -13,6 +10,12 @@ vi.mock("../../src/expenses-list/show-expenses", () => ({
 vi.mock("../../src/ui-helpers", () => ({
   showError: vi.fn(),
 }));
+
+// Pas daarna: import van de modules die de mocks gebruiken
+import { __only_for_test as formUtils } from "../../src/expenses-create/bind-form.js";
+import { addExpense } from "../../src/expenses-create/add-expense";
+import { showExpenses } from "../../src/expenses-list/show-expenses";
+import { showError } from "../../src/ui-helpers";
 
 describe("submitExpense", () => {
   let form;
@@ -48,18 +51,25 @@ describe("updateUI", () => {
     form = document.createElement("form");
     form.reset = vi.fn(); // mock reset
     container = document.createElement("div");
+
+    // Reset alle mocks
+    vi.clearAllMocks();
   });
 
   it("reset en herlaadt de lijst bij succes", async () => {
     const result = { success: true };
+
     await formUtils.updateUI(form, container, result);
+
     expect(form.reset).toHaveBeenCalled();
     expect(showExpenses).toHaveBeenCalledWith(container);
   });
 
   it("toont foutmelding bij failure", async () => {
     const result = { success: false, error: "Oeps!" };
+
     await formUtils.updateUI(form, container, result);
+
     expect(showError).toHaveBeenCalledWith(container, "Oeps!");
   });
 });

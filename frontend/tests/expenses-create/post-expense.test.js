@@ -27,7 +27,7 @@ describe("createExpense", () => {
     const result = await createExpense(data);
 
     expect(fetch).toHaveBeenCalledWith(
-      "http://localhost:3000/expenses",
+      "http://localhost:5270/api/Expence",
       expect.objectContaining({
         method: "POST",
       })

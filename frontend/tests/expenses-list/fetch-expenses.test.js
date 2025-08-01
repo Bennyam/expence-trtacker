@@ -21,7 +21,7 @@ describe("getExpensesData", () => {
 
     const data = await getExpensesData();
     expect(data).toEqual(mockData);
-    expect(fetch).toHaveBeenCalledWith("http://localhost:3000/expenses");
+    expect(fetch).toHaveBeenCalledWith("http://localhost:5270/api/Expence");
   });
 
   it("gooit een fout als de response niet ok is", async () => {

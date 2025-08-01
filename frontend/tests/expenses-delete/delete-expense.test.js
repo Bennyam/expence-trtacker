@@ -14,9 +14,12 @@ describe("deleteExpense", () => {
     fetch.mockResolvedValueOnce({ ok: true, status: 200 });
 
     await expect(deleteExpense(id)).resolves.toBeUndefined();
-    expect(fetch).toHaveBeenCalledWith(`http://localhost:3000/expenses/${id}`, {
-      method: "DELETE",
-    });
+    expect(fetch).toHaveBeenCalledWith(
+      `http://localhost:5270/api/Expence/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
   });
 
   it("verstuurt DELETE en geeft geen fout bij status 204", async () => {
