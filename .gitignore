@@ -1,3 +1,31 @@
 
 node_modules/
 expenses.json
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+*.db
+*.db-shm
+*.db-wal
+
+# VS Code settings
+.vscode/
+
+# Rider settings
+.idea/
+
+# Other
+*.log
+*.bak
