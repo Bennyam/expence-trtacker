@@ -3658,31 +3658,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\benam\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/benameryckx/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benam\\Desktop\\Oefen projecten\\expence-trtacker\\API\\API.csproj",
+      "projectUniqueName": "/Users/benameryckx/Documents/BeCode/Oefeningen/expence-trtacker/API/API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\benam\\Desktop\\Oefen projecten\\expence-trtacker\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\benam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benam\\Desktop\\Oefen projecten\\expence-trtacker\\API\\obj\\",
+      "projectPath": "/Users/benameryckx/Documents/BeCode/Oefeningen/expence-trtacker/API/API.csproj",
+      "packagesPath": "/Users/benameryckx/.nuget/packages/",
+      "outputPath": "/Users/benameryckx/Documents/BeCode/Oefeningen/expence-trtacker/API/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\benam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/benameryckx/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3748,7 +3741,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
